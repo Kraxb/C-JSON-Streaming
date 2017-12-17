@@ -167,7 +167,7 @@ int DeserializeCharArray(char *str, jsmntok_t *t, void*obj, int offset, int size
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeChar(str,&t[i],&valptr[i],0,0);
+      res = DeserializeChar(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -183,7 +183,7 @@ int DeserializeUCharArray(char *str, jsmntok_t *t, void*obj, int offset, int siz
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeUChar(str,&t[i],&valptr[i],0,0);
+      res = DeserializeUChar(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -199,7 +199,7 @@ int DeserializeShortArray(char *str, jsmntok_t *t, void*obj, int offset, int siz
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeShort(str,&t[i],&valptr[i],0,0);
+      res = DeserializeShort(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -215,7 +215,7 @@ int DeserializeUShortArray(char *str, jsmntok_t *t, void*obj, int offset, int si
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeUShort(str,&t[i],&valptr[i],0,0);
+      res = DeserializeUShort(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -231,7 +231,7 @@ int DeserializeFloatArray(char *str, jsmntok_t *t, void*obj, int offset, int siz
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeFloat(str,&t[i],&valptr[i],0,0);
+      res = DeserializeFloat(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -247,7 +247,7 @@ int DeserializeIntArray(char *str, jsmntok_t *t, void*obj, int offset, int size)
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeInt(str,&t[i],&valptr[i],0,0);
+      res = DeserializeInt(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -263,7 +263,7 @@ int DeserializeUIntArray(char *str, jsmntok_t *t, void*obj, int offset, int size
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeUInt(str,&t[i],&valptr[i],0,0);
+      res = DeserializeUInt(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -278,7 +278,7 @@ int DeserializeDoubleArray(char *str, jsmntok_t *t, void*obj, int offset, int si
 
     if(t->size>size) return  -5;//excess elements 
     for(int i=0;i<t->size;i++){
-      res = DeserializeDouble(str,&t[i],&valptr[i],0,0);
+      res = DeserializeDouble(str,&t[i+1],&valptr[i],0,0);
       if(res) return  res;
     }
     
@@ -353,18 +353,18 @@ int SerializeString(char*buf, unsigned int buflen, void*obj, int offset, int siz
     valptr[size-1]=0;
    
     int len;
-    if(valptr[0]=0){
-      int len = snprintf(buf,buflen,"null");
+    if(valptr[0]==0){
+       len  = snprintf(buf,buflen,"null");
     }else{
-       int len = snprintf(buf,buflen,"\"%s\"",valptr);
+        len = snprintf(buf,buflen,"\"%s\"",valptr);
     }
     
     return len;
 }
 
 int SerializeChar(char*buf, unsigned int buflen, void*obj, int offset, int size){
-    char * valptr=(char *)(((unsigned int)obj) + offset);
-    int len = snprintf(buf,buflen,"%d",*valptr);
+    signed char * valptr=(char *)(((unsigned int)obj) + offset);
+    int len = snprintf(buf,buflen,"%d", *valptr);
     return len;
 }
 
@@ -376,7 +376,7 @@ int SerializeUChar(char*buf, unsigned int buflen, void*obj, int offset, int size
 
 int SerializeBool(char*buf, unsigned int buflen, void*obj, int offset, int size){
     char * valptr=(char *)(((unsigned int)obj) + offset);  
-     int len;
+    int len;
     if(*valptr){
       len= snprintf(buf,buflen,"true");
     }else{
@@ -387,7 +387,7 @@ int SerializeBool(char*buf, unsigned int buflen, void*obj, int offset, int size)
 }
 
 int SerializeShort(char*buf, unsigned int buflen, void*obj, int offset, int size){
-    short * valptr=(short *)(((unsigned int)obj) + offset);
+    signed short * valptr=(short *)(((unsigned int)obj) + offset);
     int len = snprintf(buf,buflen,"%d",*valptr);
     return len;
 }
@@ -400,14 +400,14 @@ int SerializeUShort(char*buf, unsigned int buflen, void*obj, int offset, int siz
 
 
 int SerializePassword(char*buf, unsigned int buflen, void*obj, int offset, int size){
-    int len = snprintf(buf,buflen,"null");
+    signed int len = snprintf(buf,buflen,"null");
     return len;
 }
 
 
 
 int SerializeCharArray(char*buf, unsigned int buflen, void*obj, int offset, int size){
-    char * valptr=(char *)(((unsigned int)obj) + offset);    
+    signed char * valptr=(char *)(((unsigned int)obj) + offset);    
     int len;
     int TotalLen=0;
 
@@ -443,7 +443,7 @@ int SerializeUCharArray(char*buf, unsigned int buflen, void*obj, int offset, int
 }
 
 int SerializeShortArray(char*buf, unsigned int buflen, void*obj, int offset, int size){
-    short * valptr=(short *)(((unsigned int)obj) + offset);    
+    signed short * valptr=(short *)(((unsigned int)obj) + offset);    
     int len;
     int TotalLen=0;
 
@@ -515,7 +515,7 @@ int SerializeDoubleArray(char*buf, unsigned int buflen, void*obj, int offset, in
     return TotalLen;
 }
 int SerializeIntArray(char*buf, unsigned int buflen, void*obj, int offset, int size){
-    int * valptr=(int *)(((unsigned int)obj) + offset);    
+    signed int * valptr=(int *)(((unsigned int)obj) + offset);    
     int len;
     int TotalLen=0;
 
@@ -628,21 +628,22 @@ int JsonDeserialize(char *str, jsmntok_t *t, int tcnt, void *obj, const Serializ
 
     if (t[0].size == 0)
         return 0;
-
-    for (int i = 1; i < t[0].size; i++)
+    
+    int tid=1;
+    for (int i = 0; i < t[0].size; i++)
     {
-        if(t[i].type!=JSMN_STRING) return -2;//not valid parameter should name be string
+        if(t[tid].type!=JSMN_STRING) return -2;//not valid parameter should name be string
 
-        vlen = t[i].end - t[i].start;
-        if (!FindParameterInfo(info, &str[t[i].start], vlen, &type, &offset, &size))
+        vlen = t[tid].end - t[tid].start;
+        if (!FindParameterInfo(info, &str[t[tid].start], vlen, &type, &offset, &size))
         {
             if(jsonValueDeserializers[type]==0) return  -10;//value deserializer not supported
 
-            res = jsonValueDeserializers[type](str, &t[i+1], obj, offset, size);
+            res = jsonValueDeserializers[type](str, &t[tid+1], obj, offset, size);
             if (res)return res;
         }
 
-        i += t[i].size;
+        tid += 1 + t[tid].size + t[tid+1].size;
         
     }
     return 0;
@@ -657,6 +658,9 @@ int JsonSerialize(void *obj, const SerializationInfo_t info, char* buf, unsigned
 
     int res;
     int TotalLen=0;
+  
+    TotalLen+=res = snprintf(&buf[TotalLen], buflen-TotalLen, "{");
+    if(res<0) return -1; //buffer full
 
     for (int i = 1; ; i++)
     {
@@ -686,129 +690,8 @@ int JsonSerialize(void *obj, const SerializationInfo_t info, char* buf, unsigned
        
     }
 
+    TotalLen+=res = snprintf(&buf[TotalLen], buflen-TotalLen, "}");
+    if(res<0) return -1; //buffer full
+
     return TotalLen;
 }
-
-/*
-int ParseLogin(char *str, jsmntok_t *t, int tcnt, jsonLogin_t *obj)
-{
-    int vlen;
-    memset(obj, 0, sizeof(jsonLogin_t));
-
-    // Assume the top-level element is an object 
-    if (tcnt < 1 || t[0].type != JSMN_OBJECT)
-    {
-        return 1;
-    }
-
-    if(t[0].size==0) return  2;
-
-    for (int i = 1; i < t[0].size; i++)
-    {
-        if (jsoneq(str, &t[i],JSMN_STRING, "User") == 0)
-        {
-           i++;
-           vlen = t[i].end - t[i].start;
-           if(vlen > 23) return 3;
-           memcpy(obj->UserName, &str[t[i].start], vlen);  
-           obj->UserName[vlen]=0;
-        }
-        else if (jsoneq(str, &t[i],JSMN_STRING, "Password") == 0)
-        {
-           i++;
-           vlen = t[i].end - t[i].start;
-           if(vlen > 23) return 3;
-           memcpy(obj->UserName, &str[t[i].start], vlen); 
-           obj->UserName[vlen]=0;
-        }else if (jsoneq(str, &t[i],JSMN_STRING, "NewPassword") == 0)
-        {
-           i++;
-           vlen = t[i].end - t[i].start;
-           if(vlen > 23) return 3;
-           memcpy(obj->NewPassword, &str[t[i].start], vlen);  
-           obj->UserName[vlen]=0;
-        }
-        else
-        {
-             i+=t[i].size;
-        }
-    }
-    return  0;
-}
-
-
-int DeserializeGeoSetting(char *str, jsmntok_t *t, int tcnt, GeoSettings_t *obj)
-{
-    int vlen;
-    memset(obj, 0, sizeof(GeoSettings_t));
-    char *ptr;
-    float value;
-
-    // Assume the top-level element is an object
-    if (tcnt < 1 || t[0].type != JSMN_OBJECT)
-    {
-        return 1;
-    }
-
-    if (t[0].size == 0)
-        return 2;
-
-    for (int i = 1; i < t[0].size; i++)
-    {
-        if (jsoneq(str, &t[i], JSMN_STRING, "Name") == 0)
-        {
-            i++;
-            vlen = t[i].end - t[i].start;
-            if (vlen > GEO_NAME_LENGTH)
-                return -1;
-            memcpy(obj->Name, &str[t[i].start], vlen);
-            obj->Name[vlen]=0;//safely terminate string
-        }
-        else if (t[i].type == JSMN_PRIMITIVE)
-        {
-            for (int id = 0; id < GEO_PARAMS; id++)
-            {
-                //find match
-                if (jsoneq(str, &t[i], JSMN_PRIMITIVE, geoParamString(id)) == 0)
-                {
-                    i++;
-                    vlen = t[i + 1].end - t[i + 1].start;
-                    value = strtod(&str[t[i + 1].start], &ptr); 
-                    if (ptr == NULL) break;
-                    obj->Parameters[id] = value;
-                    break;
-                }
-            }
-            i += t[i].size;
-        }
-        else
-        {
-            i += t[i].size;
-        }
-    }
-
-    return 0;
-}
-
-int SerializeGeoSetting(GeoSettings_t *obj, void *buf, unsigned int buflen, void **endptr)
-{
-    int wlen;
-
-    char *ptr=(char*) buf;
-    ptr+= wlen = snprintf(ptr,buflen,"{");
-    if(wlen<0) return -1;
-
-    ptr+= wlen =snprintf(ptr,buflen,"\"%s\":\"%s\"","Name", obj->Name);
-    if(wlen<0) return -1;
-
-    for (int i = 0; i < GEO_PARAMS; i++){
-      ptr+= wlen =snprintf(ptr,buflen,",\"%s\":%f",geoParamString(i), obj->Parameters[i]);
-      if(wlen<0) return -1;
-    }
-               
-    ptr+= wlen = snprintf(ptr,buflen,"}");
-    if(wlen<0) return -1;
-    
-    *endptr = ptr;
-    return  (unsigned int) ptr - (unsigned int)buf;
-}*/
