@@ -23,7 +23,8 @@ const SerializationInfo_t TEST_SERIALIZATION_INFO = {
 #define BUF_SIZE 1024
 #define JSON_MAX_TOKENS 50
 
-void SerDeserTest(){
+void SerDeserTest()
+{
 	char buf[BUF_SIZE];
 	int len;
 	int tcnt;
