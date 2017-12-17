@@ -48,49 +48,28 @@ typedef enum{
 }SerType_t;
 
 
-#define GENERATE_SER_TYPE_CHAR(NAME, SIZE) char NAME;
+#define GENERATE_SER_TYPE_CHAR(NAME, SIZE) signed char NAME;
 #define GENERATE_SER_TYPE_UCHAR(NAME, SIZE) unsigned char NAME;
-#define GENERATE_SER_TYPE_INT(NAME, SIZE) int NAME;
+#define GENERATE_SER_TYPE_INT(NAME, SIZE) signed int NAME;
 #define GENERATE_SER_TYPE_UINT(NAME, SIZE) unsigned int NAME;
-#define GENERATE_SER_TYPE_SHORT(NAME, SIZE) short  NAME;
+#define GENERATE_SER_TYPE_SHORT(NAME, SIZE) signed short  NAME;
 #define GENERATE_SER_TYPE_USHORT(NAME, SIZE) unsigned short NAME;
 #define GENERATE_SER_TYPE_FLOAT(NAME, SIZE) float NAME;
 #define GENERATE_SER_TYPE_DOUBLE(NAME, SIZE) double NAME;
 
-#define GENERATE_SER_TYPE_CHAR_ARRAY(NAME, SIZE) char NAME[SIZE];
+#define GENERATE_SER_TYPE_CHAR_ARRAY(NAME, SIZE) signed char NAME[SIZE];
 #define GENERATE_SER_TYPE_UCHAR_ARRAY(NAME, SIZE) unsigned char NAME[SIZE];
-#define GENERATE_SER_TYPE_INT_ARRAY(NAME, SIZE) int NAME[SIZE];
+#define GENERATE_SER_TYPE_INT_ARRAY(NAME, SIZE) signed int NAME[SIZE];
 #define GENERATE_SER_TYPE_UINT_ARRAY(NAME, SIZE) unsigned int NAME[SIZE];
-#define GENERATE_SER_TYPE_SHORT_ARRAY(NAME, SIZE) short  NAME[SIZE];
+#define GENERATE_SER_TYPE_SHORT_ARRAY(NAME, SIZE) signed short  NAME[SIZE];
 #define GENERATE_SER_TYPE_USHORT_ARRAY(NAME, SIZE) unsigned short  NAME[SIZE];
 #define GENERATE_SER_TYPE_FLOAT_ARRAY(NAME, SIZE) float NAME[SIZE];
 #define GENERATE_SER_TYPE_DOUBLE_ARRAY(NAME, SIZE) double NAME[SIZE];
 
+#define GENERATE_SER_TYPE_PASSWORD(NAME, SIZE) char NAME[SIZE];
 #define GENERATE_SER_TYPE_STRING(NAME, SIZE) char NAME[SIZE];
 #define GENERATE_SER_TYPE_BOOL(NAME, SIZE) char NAME;
 
-/*
-#define SIZE_SER_TYPE_CHAR(SIZE) sizeof(char)
-#define SIZE_SER_TYPE_UCHAR(SIZE) sizeof(unsigned char)
-#define SIZE_SER_TYPE_DOUBLE(SIZE) sizeof(double)
-#define SIZE_SER_TYPE_FLOAT(SIZE) sizeof(float)
-#define SIZE_SER_TYPE_INT(SIZE) sizeof(int)
-#define SIZE_SER_TYPE_UINT(SIZE) sizeof(unsigned int)
-#define SIZE_SER_TYPE_SHORT(SIZE) sizeof(short )
-#define SIZE_SER_TYPE_USHORT(SIZE) sizeof(unsigned short )
-
-#define SIZE_SER_TYPE_CHAR_ARRAY(SIZE) sizeof(char[SIZE])
-#define SIZE_SER_TYPE_UCHAR_ARRAY(SIZE) sizeof(unsigned char[SIZE])
-#define SIZE_SER_TYPE_DOUBLE_ARRAY(SIZE) sizeof(double[SIZE])
-#define SIZE_SER_TYPE_FLOAT_ARRAY(SIZE) sizeof(float[SIZE])
-#define SIZE_SER_TYPE_INT_ARRAY(SIZE) sizeof(int[SIZE])
-#define SIZE_SER_TYPE_UINT_ARRAY(SIZE) sizeof(unsigned int[SIZE])
-#define SIZE_SER_TYPE_SHORT_ARRAY(SIZE) sizeof(short[SIZE])
-#define SIZE_SER_TYPE_USHORT_ARRAY(SIZE) sizeof(unsigned short[SIZE])
-
-#define SIZE_SER_TYPE_STRING(SIZE) sizeof(char[SIZE])
-#define SIZE_SER_TYPE_BOOL(SIZE) sizeof(char)
-*/
 
 
 int FindParameterInfo(const SerializationInfo_t info, char *str , int len, int *ParType, int *ParOffset, int *ParSize);
