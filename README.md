@@ -25,7 +25,7 @@ Serialization information:
 	};
 	
 Serializtion information could be also created manualy.
-Every member that is put into serializerion info is private member.
+Every member that is NOT put into serialization info is private member.
 
 Function example:
 
