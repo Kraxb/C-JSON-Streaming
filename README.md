@@ -1,7 +1,5 @@
 ## C Generic JSON Serializer/Deserializer
  
-This project is in development(not tested).
-
 Project is based on JSMN tokenizer.
 https://github.com/zserge/jsmn
 
