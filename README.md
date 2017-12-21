@@ -20,9 +20,12 @@ Serialization information:
 
 	const SerializationInfo_t TEST_SERIALIZATION_INFO = {
 	    SERIALIZATION_START("Test","TestNamespace", TestStruct_t),
-	    FOREACH_TEST_PARAMETER(GENERATE_SERIALIZABLE, GeoSettings_t)
+	    FOREACH_TEST_PARAMETER(GENERATE_SERIALIZABLE, TestStruct_t)
 	    SERIALIZATION_END()
 	};
+	
+Serializtion information could be also created manualy.
+Every member that is put into serializerion info is private member.
 
 Function example:
 
@@ -51,9 +54,6 @@ Function example:
 
 
 
-## Motivation
-
-I couldn't find any generic serializer/deserializer, so I tried creating my own implementation. 
 
 ## License
 
