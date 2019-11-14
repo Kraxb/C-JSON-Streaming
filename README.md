@@ -14,31 +14,20 @@
  There are may configuration options regarding .
  
 ## SUPORTED TYPES
+```
 SER_TYPE_UNSIGNED
 SER_TYPE_SIGNED
-
 SER_TYPE_FLOAT
-
 SER_TYPE_STRING
-
 SER_TYPE_BOOL
-
 SER_TYPE_PASSWORD
-
 SER_TYPE_TIME
-
 SER_TYPE_DATE
-
 SER_TYPE_DATETIME
-
 SER_TYPE_TIMESPAN
-
 SER_TYPE_EUI_48
-
 SER_TYPE_EUI_64
-
 SER_TYPE_HEX
-
 SER_TYPE_RHEX reversed hex representation bytes are swaped
 
 SER_TYPE_UNSIGNED_ARRAY
@@ -54,15 +43,16 @@ SER_TYPE_OBJECT_ARRRY
 SER_TYPE_OBJECT_PTR_ARRAY serialization only
 SER_TYPE_STRING_PTR
 SER_TYPE_TOTAL_COUNT
+```
   
 ## Code Example
 
+```
 typedef struct{
   float          Float; 
   timespan_t     Interval;
   int            Number;
 }struct_t;
-
 
 
 const SerializationInfo_t MODEL1_SERIALIZATION_INFO = {
@@ -73,13 +63,13 @@ const SerializationInfo_t MODEL1_SERIALIZATION_INFO = {
     SERIALIZATION_END()
 };
 
+
 const SerializationInfo_t MODEL2_SERIALIZATION_INFO = {
     SERIALIZATION_START("MODEL2","M", struct_t),
     GENERATE_SERIALIZABLE(Float,        SER_TYPE_TIMESPAN,  struct_t)  
 
     SERIALIZATION_END()
 };
-
 
 
 
@@ -110,7 +100,7 @@ int SerializeCallback(void*arg, char *buf,int len, int *bread){ //bread not used
    //write to any output
     //arg is your optional state
 }
-
+```
 
 ## License
 
