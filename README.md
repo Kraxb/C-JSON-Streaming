@@ -15,19 +15,32 @@
  
 ## SUPORTED TYPES
 SER_TYPE_UNSIGNED
+
 SER_TYPE_SIGNED
-   SER_TYPE_FLOAT, 
-   SER_TYPE_STRING,
-   SER_TYPE_BOOL, 
-   SER_TYPE_PASSWORD,  
-   SER_TYPE_TIME, 
-   SER_TYPE_DATE, 
-   SER_TYPE_DATETIME,
-   SER_TYPE_TIMESPAN,
-   SER_TYPE_EUI_48,
-   SER_TYPE_EUI_64,
-   SER_TYPE_HEX,
-   SER_TYPE_RHEX,//reversed hex representation bytes are swaped
+
+SER_TYPE_FLOAT
+
+   SER_TYPE_STRING
+   
+   SER_TYPE_BOOL
+   
+   SER_TYPE_PASSWORD
+   
+   SER_TYPE_TIME
+   
+   SER_TYPE_DATE
+   
+   SER_TYPE_DATETIME
+   
+   SER_TYPE_TIMESPAN
+   
+   SER_TYPE_EUI_48
+   
+   SER_TYPE_EUI_64
+   
+   SER_TYPE_HEX
+   
+   SER_TYPE_RHEX//reversed hex representation bytes are swaped
 
 
    SER_TYPE_UNSIGNED_ARRAY
