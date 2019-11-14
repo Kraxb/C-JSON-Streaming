@@ -14,8 +14,8 @@
  There are may configuration options regarding .
  
 ## SUPORTED TYPES
-   SER_TYPE_UNSIGNED,
-   SER_TYPE_SIGNED,
+SER_TYPE_UNSIGNED
+SER_TYPE_SIGNED
    SER_TYPE_FLOAT, 
    SER_TYPE_STRING,
    SER_TYPE_BOOL, 
