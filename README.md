@@ -2,7 +2,8 @@
  
  Code is written so that it supports bufferd and streamed mode.
  
- You just have to define structure and model for that strusture.
+ You just have to define structure and model for that structure. 
+ You can have any number of models for one structure.
  
  Serializatiion reads directly from structure members.
  Deserialization writes directly to structure members.
