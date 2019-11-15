@@ -8,6 +8,8 @@
  Serializatiion reads directly from structure members.
  Deserialization writes directly to structure members.
  
+ It is possible to serialize/deserialize directly from and to buffer without callbacks.
+ 
  Deserializer also supports simple validation.
  
  Buffer must only be big enough to hold left or righ side of parameter plus some bytes for '": ' characters in JSON "left":"right"
