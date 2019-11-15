@@ -1,6 +1,6 @@
 ## C JSON Streaming or buffered Serializer/Deserializer with very small RAM usage
  
- Code is written so that it supports bufferd and streamed mode.
+ Code is written so that it supports buffered and streamed mode.
  
  You just have to define structure and model for that structure. 
  You can have any number of models for one structure.
