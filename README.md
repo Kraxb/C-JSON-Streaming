@@ -14,7 +14,7 @@
  
  Size of simple strusture members such as 'int' 'float' 'double' is detected automaticaly. 
  
- Each serializing member also supports simple validation.
+ Each member also supports simple validation.
  
 ## SUPORTED TYPES
 ```
