@@ -93,7 +93,7 @@ typedef struct{
 
 const SerializationInfo_t MODEL1_SERIALIZATION_INFO = {
     SERIALIZATION_START("MODEL1","M", struct_t),
-    GENERATE_SERIALIZABLE(Float,        SER_TYPE_TIMESPAN,  struct_t)  
+    GENERATE_SERIALIZABLE(Float,        SER_TYPE_FLOAT,  struct_t)  
     GENERATE_SERIALIZABLE(Interval,     SER_TYPE_TIMESPAN,  struct_t)  
     GENERATE_SERIALIZABLE_D(Number,       SER_TYPE_SIGNED,    struct_t,SER_DIR_R)  
     SERIALIZATION_END()
@@ -102,7 +102,7 @@ const SerializationInfo_t MODEL1_SERIALIZATION_INFO = {
 
 const SerializationInfo_t MODEL2_SERIALIZATION_INFO = {
     SERIALIZATION_START("MODEL2","M", struct_t),
-    GENERATE_SERIALIZABLE(Float,        SER_TYPE_TIMESPAN,  struct_t)  
+    GENERATE_SERIALIZABLE(Float,        SER_TYPE_FLOAT,  struct_t)  
 
     SERIALIZATION_END()
 };
