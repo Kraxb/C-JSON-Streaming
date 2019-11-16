@@ -53,7 +53,7 @@ SER_TYPE_TOTAL_COUNT
 ```
   
 
-##Member mapping
+## Member mapping
 ```
 Serializer works with user preconfigured  SerializationInfo_t array of SerializationItem where member mapping is specified.
 
