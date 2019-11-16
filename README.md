@@ -14,7 +14,7 @@
  
  Buffer must only be big enough to hold left or righ side of parameter plus some bytes for '": ' characters in JSON "left":"right"
  
- Size of simple strusture members such as 'int' 'float' 'double' is detected automaticaly. 
+ Size of simple structure members such as 'int' 'float' 'double' is detected automaticaly. 
  
  Each member also supports simple validation.
  
