@@ -114,6 +114,7 @@ void *arg;
 uint8_t buff[255]; 
 JsonConvertHandle hnd;
 
+//parameter of 4 is data lenght filled in buffer for buffer preload in streaming(callback configured) or buffered operation
 
 JsonInitHandle(&hnd, buff, 255, 0, 0);
 JsonHandleRegisterCallback(&hnd, DeserializeCallback, arg)
