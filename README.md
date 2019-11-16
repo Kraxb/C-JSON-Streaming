@@ -18,10 +18,12 @@
  
  Each member also supports simple validation.
  
+Size of member is detected automaticaly. For example, there is no need to specify if unsigned is 8bit 16bit or 32bit.
+ 
 ## SUPORTED TYPES
 ```
-SER_TYPE_UNSIGNED
-SER_TYPE_SIGNED
+SER_TYPE_UNSIGNED 
+SER_TYPE_SIGNED   
 SER_TYPE_FLOAT
 SER_TYPE_STRING
 SER_TYPE_BOOL
