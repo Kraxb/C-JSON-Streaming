@@ -54,13 +54,14 @@ SER_TYPE_TOTAL_COUNT
   
 
 ## Member mapping
-```
+
 Serializer works with user preconfigured  SerializationInfo_t array of SerializationItem where member mapping is specified.
 
 Struct members are mapped with following macros helpers
  _D is direction specification
  _DN is direction and custom json parameter name specification 
 
+```
 SERIALIZATION_START(NAME, NAMESPACE, STRUCTTYPE)
 SERIALIZATION_END() 
 
